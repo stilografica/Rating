@@ -1,0 +1,62 @@
+//Animation browser prefixes
+@mixin animations($property) {
+	-webkit-animation: $property;/* Safari & Chrome*/
+	-moz-animation: $property;/* Firefox */
+	-o-animation: $property;/* Opera */
+	animation: $property;
+}
+//Transform browser prefixes
+@mixin transform ($property) {
+	-webkit-transform: $property;/* Safari & Chrome*/
+	transform: $property;
+}
+
+//Letters: IT ACADEMY
+@mixin font($family, $size, $rendering, $transform) {
+    font-family: $family;
+    font-size: $size;
+    color: $white;
+    text-rendering: $rendering;
+    text-transform: $transform;
+}
+
+/*All containers, from 1 to 5*/
+@mixin stripes {
+    //Local variable
+    $col: 5;
+    
+    /*To center the letters*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*width for each column, with variable because there may be a change of number of columns later*/
+	flex-basis: #{100/$col}vw;
+    height: 100vh!important;/*"!important" required so that the scroll bar is not displayed in safari*/
+    /*To prevent the white layers overlapping when selecteding*/
+    overflow: hidden;
+	cursor:pointer;
+    /*Loop to generate all containers*/
+	@for $i from 1 through $col {
+		&:nth-child(#{$i})  {
+			background-color: map-get($colours, col#{$i});
+			@include animations(container#{$i} 1s $cubic #{$i*0.1}s both);
+
+			/*Entrance animations*/
+			@-webkit-keyframes container#{$i} {
+				/*Each container leave from one side of the screen*/
+				0% {@include transform (translate(map-get($animation, container#{$i})));}
+				100% {@include transform ($translateZero);}
+			}
+			@keyframes container#{$i} {
+				0% {@include transform (translate(map-get($animation, container#{$i})));}
+				100% {@include transform ($translateZero)}
+            }
+			/*White line between containers*/
+			@if $i!=1 {
+                margin-left: 0.188rem;
+			}@else {
+				margin-left: 0;
+			}
+		}
+    }
+}

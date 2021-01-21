@@ -1,0 +1,81 @@
+/*Big container, father element*/
+body{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	background-image: url("../img/charisse-kenion-cookies.jpg");
+	background-position: bottom;
+	height: 100vh;
+}
+
+
+article{
+	display:flex;
+	justify-content: center;
+	background-color: rgba($intense, 0.95);
+	padding: 2.400rem;
+	flex-direction: column;
+
+	img{
+		padding-bottom: 2.500rem;
+	}
+
+	%point{
+		content: "·";
+	}
+	
+	h1{
+		font-family: 'Montserrat', sans-serif;
+		font-weight: 600;
+		font-size: 2.00rem;
+		color: $rose;
+		text-align: center;
+		line-height: 1.3em;
+
+		&::after{
+			@extend %point;
+		}
+		&::before{
+			@extend %point;
+		}
+	}
+
+	h2{
+		@extend h1;
+		font-weight: 400;
+		color: $white;
+	}
+
+	.fa-cookie-bite{
+		font-size: 4.75rem;
+		color: $rose;
+		cursor: pointer!important;
+
+		@for $i from 1 through 5 {
+			&:nth-child(#{$i}) {
+				/*margin between icons*/
+				@if $i!=1 {
+					margin-left: 1.00rem;
+				}@else {
+					margin-left: 0;
+				}
+			}
+		
+		}
+	}
+
+	section{
+		display: flex;
+		justify-content: center;
+		margin: 2.200rem 0 0 0;
+	}
+}
+
+
+.over{
+	color: $white!important;
+}
+
+.selected{
+	color: $white!important;
+}

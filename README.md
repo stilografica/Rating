@@ -1,14 +1,16 @@
 # Rating Javascript para Cuquis Galleteros Empedernidos
 
-_Ejercicio de Javascript ES6_
+Ejercicio de Javascript ES6 para la IT Academy.
+
+## Características 📝 
+
+  <img src= "https://stilografica.es/galleteros.png">
+
+Creación de un rating en el que el usuario puede hacer click sobre el número de galletas con el que quiere puntuar la aplicación. Puede deseleccionar haciendo click fuera de de los iconos y al pasar el _mouse_ por encima de las galletas, éstas cambian de color. 
 
 ## Instalación 🔧
 
-_Descargar todos los archivos y ejecutar index.html_
-
-### Comentarios 📋
-
-_Para desactivar la puntuación realizada hacer click fuera de los iconos_
+Descargar todos los archivos y ejecutar index.html
 
 ## Construido con 🛠️
 
